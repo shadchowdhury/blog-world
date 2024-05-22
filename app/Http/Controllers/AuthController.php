@@ -14,7 +14,7 @@ class AuthController extends Controller
         $fields = $request -> validate([
             'username' => ['required', 'max:255'],
             'email' => ['required', 'max:255', 'email','unique:users'],
-            'password' => ['required', 'min:8','confirmed']
+            'password' => ['required', 'min:8', 'max:8','confirmed']
         ]);
 
         //Register
@@ -23,7 +23,7 @@ class AuthController extends Controller
         //Login
         Auth::login($user);
         //Redirect
-        return redirect()->route('home');
+        return redirect()->route('dashboard');
     }
 
     //Login User
@@ -58,6 +58,6 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
 
         //Redirect to home
-        return redirect()->route('home');
+        return redirect()->route('posts.index');
     }
 }
