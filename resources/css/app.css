@@ -37,7 +37,7 @@
     }
 
     .card {
-        @apply bg-white p-6 rounded-lg shadow-lg border border-slate-200 max-w-sm;
+        @apply bg-white p-6 rounded-lg shadow-lg border border-slate-200 max-w-screen-lg;
     }
 
 }
