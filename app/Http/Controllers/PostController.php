@@ -32,8 +32,6 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //dd(Auth::);
-
         // validate
         $field = $request -> validate([
             'title' => ['required', 'max:255'],
@@ -42,8 +40,10 @@ class PostController extends Controller
 
         // create a post
         //Post::create(['user_id' => Auth::id(), ...$field]);  // But it will make problems when we want to grap posts that belongs to user.
+        Auth::user()->posts()->create($field);
 
         // redirect to dashboard
+        return back()->with('success','Your post has ceated successfully');
     }
 
     /**

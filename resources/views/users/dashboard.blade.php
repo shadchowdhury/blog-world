@@ -5,13 +5,21 @@
     <div class="card mb-4">
         <h1 class="font-bold mb-4">Create a new post</h1>
 
+        {{-- Session Messages --}}
+        @if (session('success'))
+            <div id="flashmsg">
+                <p class="text-green-700">{{ session('success') }}</p>
+            </div>
+        @endif
+
         <form action="{{ route('posts.store') }}" method="post">
             @csrf
 
             {{-- Post title --}}
             <div class="mb-4">
                 <label for="title">Post Title</label>
-                <input type="text" name="title" value="{{ old('title') }}" class="input @error('title') ring-red-500 @enderror">
+                <input type="text" name="title" value="{{ old('title') }}"
+                    class="input @error('title') ring-red-500 @enderror">
                 @error('title')
                     <p class="error">{{ $message }}</p>
                 @enderror
