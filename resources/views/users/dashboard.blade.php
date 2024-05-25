@@ -5,10 +5,13 @@
     <div class="card mb-4">
         <h1 class="font-bold mb-4">Create a new post</h1>
 
+
+
         {{-- Session Messages --}}
         @if (session('success'))
-            <div id="flashmsg">
-                <p class="text-green-700">{{ session('success') }}</p>
+            <div id="successmsg">
+                <x-flasmsg msg="{{ session('success') }}"/>
+                {{-- <p class="text-green-700">{{ session('success') }}</p> --}}
             </div>
         @endif
 
