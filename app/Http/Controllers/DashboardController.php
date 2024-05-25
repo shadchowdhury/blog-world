@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Support\Facades\Auth;
+//use Illuminate\Routing\Controllers\HasMiddleware;
 
 class DashboardController extends Controller               //implements HasMiddleware {for learning purpose}
 {
@@ -15,6 +17,11 @@ class DashboardController extends Controller               //implements HasMiddl
     // }
 
     public function index() {
-        return view('users.dashboard');
+        // $posts = Post::where('user_id', Auth::id())->get(); //One Way.
+
+        // Another way
+        $posts = Auth::user()->posts()->latest()->paginate(6);
+
+        return view('users.dashboard', ['posts' => $posts]);
     }
 }
