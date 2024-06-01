@@ -29,6 +29,9 @@ class DashboardController extends Controller               //implements HasMiddl
     public function userPosts(User $user) {
         $userPosts = $user->posts()->latest()->paginate(6);
 
-        return view('users.posts', ['posts' => $userPosts, 'user' => $user]);
+        return view('users.posts', [
+            'posts' => $userPosts,
+            'user' => $user
+        ]);
     }
 }
