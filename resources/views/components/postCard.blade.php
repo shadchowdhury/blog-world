@@ -7,7 +7,7 @@
     {{-- Author and Date --}}
     <div class="text-xs mb-4">
         <span><i>Posted {{ $post->created_at->diffforHumans() }} by</i></span>
-        <a href="#" class="text-blue-500 font-medium">Username</a>
+    <a href="{{ route('user.posts', $post->user) }}" class="text-blue-500 font-medium">{{ $post->user->username }}</a>
     </div>
 
     {{-- Post Body --}}
