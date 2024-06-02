@@ -19,14 +19,8 @@
             <a href="{{ route('posts.show', $post) }}" class="text-blue-500">Read more</a>
         @endif
     </div>
-    {{-- @if ($full)
-        <div class="text-sm text-justify">
-            <span>{{ $post->body }}</span>
-        </div>
-    @else
-        <div class="text-sm text-justify">
-            <span>{{ Str::words($post->body, 35, '...') }}</span>
-            <a href="{{ route('posts.show', $post) }}" class="text-blue-500">Read more</a>
-        </div>
-    @endif --}}
+    <div class="flex items-center justify-end gap-4 mt-6">
+        {{ $slot }}
+    </div>
+
 </div>

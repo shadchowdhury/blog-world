@@ -2,5 +2,7 @@ import './bootstrap';
 
 
 setTimeout(function () {
-    $('#successmsg').fadeOut();
+    $('.flasmsg').fadeOut();
 }, 1000);
+
+

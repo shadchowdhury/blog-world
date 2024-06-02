@@ -75,6 +75,11 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        //Delete the post
+        $post->delete();
+
+        //Redirect to Dashboard
+        return back()->with('delete','Your post was deleted successfully');
+
     }
 }

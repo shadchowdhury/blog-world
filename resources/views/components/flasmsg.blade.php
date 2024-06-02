@@ -1,3 +1,3 @@
-@props(['msg'])
+@props(['msg' , 'color' => 'text-green-700'])
 
-<p class="text-green-700">{{ $msg }}</p>
+<p class="{{ $color }}">{{ $msg }}</p>
