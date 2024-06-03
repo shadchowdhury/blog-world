@@ -46,17 +46,25 @@
         </form>
     </div>
 
+
+    {{-- Latest post of User Section --}}
+
     <h2 class="font-bold mb-4">Your Latest Posts</h2>
 
     <div class="grid grid-cols-2 gap-4">
         @foreach ($posts as $post)
             <x-postCard :post="$post">
+
+                {{-- Update Post --}}
+                <a href="{{ route('posts.edit', $post) }}" class="bg-green-600 text-white px-2 py-1 text-xs rounded-md">Update</a>
+
                 {{-- Delete Post --}}
                 <form action="{{ route('posts.destroy', $post) }}" method="post">
                     @csrf
                     @method('DELETE')
-                    <button class="bg-red-500 text-white px-2 py-1 text-xs rounded-md">Delete</button>
+                    <button class="bg-red-600 text-white px-2 py-1 text-xs rounded-md">Delete</button>
                 </form>
+
             </x-postCard>
         @endforeach
     </div>

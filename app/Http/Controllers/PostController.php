@@ -43,7 +43,7 @@ class PostController extends Controller
         Auth::user()->posts()->create($field);
 
         // redirect to dashboard
-        return back()->with('success','Your post has ceated successfully');
+        return back()->with('success','Your post has been ceated successfully');
     }
 
     /**
@@ -59,7 +59,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('posts.edit', ['post' => $post]);
     }
 
     /**
@@ -67,7 +67,17 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        //Validate
+        $fields = $request->validate([
+            'title' => ['required', 'max:255'],
+            'body' => ['required']
+        ]);
+
+        //Update the post
+        $post->update($fields);
+
+        //redirect to dashboard
+        return redirect()->route('dashboard')->with('success', 'Your post has been updated successfully');
     }
 
     /**
