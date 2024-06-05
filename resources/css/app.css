@@ -40,4 +40,8 @@
         @apply bg-white p-6 rounded-lg shadow-lg border border-slate-200 max-w-screen-lg;
     }
 
+    .image {
+        @apply mx-auto object-cover hover:scale-125 duration-1000;
+    }
+
 }
