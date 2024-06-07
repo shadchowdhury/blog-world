@@ -15,6 +15,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::post('/logout', [AuthController::class , 'logout'])->name('logout');
+
+    //Email Verification Notice Route
+    Route::get('/email/verify', [AuthController::class, 'emailVerify'])->name('verification.notice');
 });
 
 Route::middleware('guest')->group(function () {

@@ -4,9 +4,9 @@
     {{-- Cover Photo --}}
     <div class="mb-2 overflow-hidden">
         @if ($post->image)
-            <img src="{{ asset('storage/' . $post->image) }}" alt="" class="image @if($full) h-fit @else h-72 @endif">
+            <img src="{{ asset('storage/' . $post->image) }}" alt="" class="image @if($full) h-96 @else h-72 @endif">
         @else
-            <img src="{{ asset('storage/posts_images/default.jpg') }}" alt="" class="image @if($full) h-fit @else h-72 @endif">
+            <img src="{{ asset('storage/posts_images/default.jpg') }}" alt="" class="image @if($full) h-96 @else h-72 @endif">
         @endif
     </div>
 
