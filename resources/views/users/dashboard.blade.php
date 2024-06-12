@@ -21,7 +21,7 @@
             </div>
         @endif
 
-        <form action="{{ route('posts.store') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('posts.store') }}" method="post" enctype="multipart/form-data" x-data="formSubmit" @submit.prevent="submit">
             @csrf
 
             {{-- Post title --}}
@@ -54,7 +54,7 @@
             </div>
 
             {{-- Submit Button --}}
-            <button type="submit" class="btn">Create</button>
+            <button type="submit" x-ref="btn" class="btn">Create</button>
         </form>
     </div>
 

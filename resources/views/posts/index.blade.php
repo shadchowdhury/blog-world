@@ -3,7 +3,7 @@
 
     <div class="grid grid-cols-2 gap-5">
         @foreach ($posts as $post)
-            <x-postCard :post="$post"/>
+        <x-postCard :post="$post" />
         @endforeach
     </div>
 

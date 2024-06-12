@@ -4,7 +4,7 @@
     </div>
 
     <div class="mx-auto max-w-screen-sm card">
-        <form action="{{ route('register') }}" method="post">
+        <form action="{{ route('register') }}" method="post" x-data="formSubmit" @submit.prevent="submit">
             @csrf
             {{-- Username --}}
             <div class="mb-4">
@@ -36,7 +36,7 @@
                 <input type="password" name="password_confirmation" class="input @error('password') ring-red-500 @enderror">
             </div>
             {{-- Submit Button --}}
-            <button type="submit" class="btn">Register</button>
+            <button type="submit" x-ref="btn" class="btn">Register</button>
         </form>
     </div>
 </x-layout>
