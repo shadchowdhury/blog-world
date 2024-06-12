@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\UserSubscribed;
+use Illuminate\Support\Facades\Mail;
 
 class SendSubscriberEmail
 {
@@ -19,6 +20,13 @@ class SendSubscriberEmail
      */
     public function handle(UserSubscribed $event): void
     {
-        dd('Listener Called from ' . $event->name);
+        //dd('Listener Called from ' . $event->name);
+        Mail::raw(
+            'Thank you for subscribing to our newsletter',
+            function ($message) use ($event) {
+                $message->to($event->user->email);
+                $message->subject('Thank you');
+            }
+        );
     }
 }

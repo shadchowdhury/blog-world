@@ -2,10 +2,10 @@
 
 namespace App\Events;
 
-
-use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Foundation\Events\Dispatchable;
+use App\Models\User;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Broadcasting\InteractsWithSockets;
 
 class UserSubscribed
 {
@@ -14,7 +14,7 @@ class UserSubscribed
     /**
      * Create a new event instance.
      */
-    public function __construct(public string $name)
+    public function __construct(public User $user)
     {
         //
     }
