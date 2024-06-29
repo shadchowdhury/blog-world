@@ -17,7 +17,7 @@ class AuthController extends Controller
         $fields = $request -> validate([
             'username' => ['required', 'max:255'],
             'email' => ['required', 'max:255', 'email','unique:users'],
-            'password' => ['required', 'min:8', 'max:8','confirmed']
+            'password' => ['required', 'min:8','confirmed']
         ]);
 
         //Register
